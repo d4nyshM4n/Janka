@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<section class="menu_page">
+
+<div class="container">
+
+
+<h1 class="page_title">
+
+Наше меню
+
+</h1>
+
+
+
+<!-- Категории -->
+
+
+<div class="categories">
+
+
+{% for category in categories %}
+
+
+<div class="category">
+
+
+{{ category.name }}
+
+
+</div>
+
+
+{% endfor %}
+
+
+</div>
+
+<!-- Фильтры -->
+
+
+<div class="filters">
+<a href="/menu/">Все</a>
+
+<a href="?vegetarian=True">🌿 Вегетарианское</a>
+
+<a href="?spicy=True">🌶 Острые</a>
+</div>
+
+
+
+
+<!-- Блюда -->
+
+
+<a href="/dish/{{ dish.id }}/" class="card">
+
+
+{% for dish in dishes %}
+
+
+
+<div class="card">
+
+
+
+<img src="{{ dish.image.url }}" alt="{{ dish.name }}">
+
+
+
+<div class="card_body">
+
+<h3>{{ dish.name }}</h3>
+<p>{{ dish.description }}</p>
+<p>Вес: {{ dish.weight }}</p>
+
+
+<div class="price">
+
+{{ dish.price }} сом
+
+</a>
+
+
+<button class="btn_small">
+
+Добавить
+
+</button>
+</div>
+</div>
+
+{% empty %}
+
+<h3>
+
+Блюд пока нет
+
+</h3>
+
+{% endfor %}
+
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+{% endblock %}

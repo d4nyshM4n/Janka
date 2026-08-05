@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="dish_page">
+
+<div class="container">
+
+<div class="dish_box">
+
+<div class="dish_image">
+
+<img src="{{ dish.image.url }}">
+
+</div>
+
+<div class="dish_info">
+
+<h1>
+
+{{ dish.name }}
+
+</h1>
+
+<p>
+
+{{ dish.description }}
+
+</p>
+
+<h3>
+
+Состав
+
+</h3>
+
+<p>
+
+{{ dish.ingredients }}
+
+</p>
+
+<p>
+
+Вес:
+
+{{ dish.weight }}
+
+</p>
+
+<div class="price">
+
+{{ dish.price }} сом
+
+</div>
+
+<button class="btn">
+
+Добавить в корзину
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

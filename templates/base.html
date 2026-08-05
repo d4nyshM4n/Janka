@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Janka</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="container">
+
+        <div class="header">
+
+            <div class="logo">
+
+                <a href="/">Janka</a>
+
+            </div>
+
+            <nav>
+
+                <a href="/">Главная</a>
+
+                <a href="/menu/">Меню</a>
+
+                <a href="/about/">О нас</a>
+
+                <a href="/reservation/">Бронирование</a>
+
+                <a href="{% url 'contacts:index' %}">Контакты</a>
+
+            </nav>
+
+            <div class="cart">
+
+                <a href="{% url 'cart' %}">🛒</a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<main>
+
+{% block content %}
+
+{% endblock %}
+
+</main>
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer">
+
+            <h2>Janka</h2>
+
+            <p>
+
+                Домашняя кухня • Свежие продукты • Уютная атмосфера
+
+            </p>
+
+            <div class="footer_links">
+
+                <a href="/">Главная</a>
+
+                <a href="/menu/">Меню</a>
+
+                <a href="/about/">О нас</a>
+
+                <a href="/contacts/">Контакты</a>
+
+            </div>
+
+            <p class="copy">
+
+                © 2026 Janka. Все права защищены.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+
+</html>

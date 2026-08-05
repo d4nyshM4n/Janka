@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="reservation-page">
+    <div class="container">
+
+        <div class="reservation-form">
+
+            <h1>Бронирование столика 🍽️</h1>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <input type="text" name="name" placeholder="Ваше имя" required>
+
+                <input type="tel" name="phone" placeholder="Телефон" required>
+
+                <input type="date" name="date" required>
+
+                <input type="time" name="time" required>
+
+                <input type="number" name="guests" placeholder="Количество гостей" required>
+
+                <textarea name="comment" placeholder="Комментарий"></textarea>
+
+                <button type="submit" class="btn">
+                    Забронировать
+                </button>
+            </form>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

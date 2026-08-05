@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Главный баннер -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero_box">
+
+            <div class="hero_text">
+
+                <h1>
+                    Добро пожаловать в Janka
+                </h1>
+
+                <p>
+                    Домашняя кухня, свежие продукты и уютная атмосфера.
+                    Мы готовим блюда с любовью и заботимся о каждом госте.
+                </p>
+
+                <a href="/menu/" class="btn">
+                    Посмотреть меню
+                </a>
+
+            </div>
+
+            <div class="hero_image">
+
+                <img src="{% static 'css/images/banner.png' %}" alt="Janka">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Популярные блюда -->
+
+<section class="popular">
+
+    <div class="container">
+
+        <h2>Наши хиты</h2>
+
+        <div class="cards">
+
+            {% for dish in dishes %}
+
+            <div class="card">
+
+                <img src="{{ dish.image.url }}" alt="{{ dish.name }}">
+
+                <div class="card_body">
+
+                    <h3>{{ dish.name }}</h3>
+
+                    <p>{{ dish.description|truncatewords:12 }}</p>
+
+                    <div class="price">
+                        {{ dish.price }} сом
+                    </div>
+
+                    <a href="#" class="btn_small">
+                        Добавить
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <p>
+                Пока блюда не добавлены.
+            </p>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Почему выбирают нас -->
+
+<section class="advantages">
+
+    <div class="container">
+
+        <h2>Почему выбирают нас</h2>
+
+        <div class="advantages_box">
+
+            <div class="advantage">
+
+                <h3>🌿</h3>
+
+                <h4>Свежие продукты</h4>
+
+                <p>
+                    Используем только качественные ингредиенты.
+                </p>
+
+            </div>
+
+            <div class="advantage">
+
+                <h3>👨‍🍳</h3>
+
+                <h4>Опытные повара</h4>
+
+                <p>
+                    Наши блюда готовятся профессиональными поварами.
+                </p>
+
+            </div>
+
+            <div class="advantage">
+
+                <h3>🚚</h3>
+
+                <h4>Быстрая доставка</h4>
+
+                <p>
+                    Доставляем заказы максимально быстро.
+                </p>
+
+            </div>
+
+            <div class="advantage">
+
+                <h3>⭐</h3>
+
+                <h4>Высокое качество</h4>
+
+                <p>
+                    Мы ценим каждого клиента.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Акции -->
+
+<section class="promotion">
+
+    <div class="container">
+
+        <h2>Наши акции</h2>
+
+        <div class="cards">
+
+            {% for promotion in promotions %}
+
+            <div class="card">
+
+                <img src="{{ promotion.image.url }}" alt="{{ promotion.title }}">
+
+                <div class="card_body">
+
+                    <h3>{{ promotion.title }}</h3>
+
+                    <p>{{ promotion.description }}</p>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <p>
+                Сейчас акций нет.
+            </p>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- О нас -->
+
+<section class="about_home">
+
+    <div class="container">
+
+        <div class="about_box">
+
+            <div class="about_image">
+
+                <img src="{% static 'images/about.jpg' %}" alt="О нас">
+
+            </div>
+
+            <div class="about_text">
+
+                <h2>О кафе Janka</h2>
+
+                <p>
+
+                    Janka — уютное кафе, где сочетаются вкусная еда,
+                    приятная атмосфера и качественный сервис.
+
+                </p>
+
+                <a href="/about/" class="btn">
+                    Подробнее
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Контакты -->
+
+<section class="contacts">
+
+    <div class="container">
+
+        <h2>Контакты</h2>
+
+        <div class="contact_box">
+
+            <div>
+
+                <h3>📍 Адрес</h3>
+
+                <p>г. Бишкек</p>
+
+            </div>
+
+            <div>
+
+                <h3>📞 Телефон</h3>
+
+                <p>+996 XXX XX XX XX</p>
+
+            </div>
+
+            <div>
+
+                <h3>🕘 Время работы</h3>
+
+                <p>09:00 – 00:00</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
