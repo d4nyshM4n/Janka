@@ -1,5 +1,22 @@
 from django.shortcuts import render
 from .models import Reservation
+from .forms import ReservationForm
+from .whatsapp import send_booking_to_whatsapp
+
+
+def make_reservation(request):
+    if request.method == 'POST':
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            reservation = form.save()
+            send_booking_to_whatsapp(reservation)
+            return render(request, 'reservations/reservation_success.html', {
+                'reservation': reservation
+            })
+    else:
+        form = ReservationForm()
+        
+    return render(request, 'reservations/reservation_form.html', {'form': form})
 
 
 def reserve(request):

@@ -9,7 +9,6 @@ class Category(models.Model):
         verbose_name="Название"
     )
 
-    # 1. Поле slug делаем null=True, чтобы сушествующие записи в БД не выставили одинаковое значение
     slug = models.SlugField(
         max_length=120,
         unique=True,
@@ -24,12 +23,10 @@ class Category(models.Model):
     )
 
     def save(self, *args, **kwargs):
-        # Автоматическая генерация slug при сохранении, если он не указан
         if not self.slug and self.name:
             base_slug = slugify(self.name)
             slug = base_slug
             count = 1
-            # Гарантируем уникальность slug
             while Category.objects.filter(slug=slug).exclude(pk=self.pk).exists():
                 slug = f"{base_slug}-{count}"
                 count += 1
@@ -93,15 +90,31 @@ class Dish(models.Model):
         verbose_name="Цена"
     )
 
-    spicy = models.BooleanField(
+    breakfast = models.BooleanField(
         default=False,
-        verbose_name="Острое"
+        verbose_name="Завтрак"
     )
 
-    vegetarian = models.BooleanField(
+    soup = models.BooleanField(
         default=False,
-        verbose_name="Вегетарианское"
+        verbose_name="Супы"
     )
+    main = models.BooleanField(
+            default=False,
+            verbose_name="Основные блюда"
+        )
+    salats = models.BooleanField(
+            default=False,
+            verbose_name="Салаты"
+        )
+    deserts = models.BooleanField(
+            default=False,
+            verbose_name="Десерты"
+        )
+    drinks = models.BooleanField(
+            default=False,
+            verbose_name="Напитки"
+        )
 
     available = models.BooleanField(
         default=True,

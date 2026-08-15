@@ -1,0 +1,213 @@
+/* ==========================================================================
+   CSS ДЛЯ СТРАНИЦЫ УСПЕШНОГО ЗАКАЗА
+   ========================================================================== */
+
+.success-page-layout {
+    padding: 160px 0 100px 0 !important;
+    min-height: 85vh !important;
+    display: block !important;
+    width: 100% !important;
+    background: linear-gradient(135deg, #800000 0%, #000000 100%) fixed !important;
+}
+
+.success-page-container {
+    max-width: 650px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+}
+
+/* Эффект парения для эмодзи */
+.success-badge-holder {
+    margin-bottom: 25px !important;
+}
+
+.success-badge-emoji {
+    font-size: 80px !important;
+    display: inline-block !important;
+    filter: drop-shadow(0 4px 15px rgba(128, 0, 0, 0.5));
+    animation: successEmojiFloat 3s ease-in-out infinite;
+}
+
+@keyframes successEmojiFloat {
+    0% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-10px) scale(1.05); }
+    100% { transform: translateY(0px) scale(1); }
+}
+
+.success-main-title {
+    font-family: 'Georgia', serif !important;
+    font-style: italic !important;
+    font-weight: normal !important;
+    font-size: 42px !important;
+    color: #ffffff !important;
+    margin-bottom: 20px !important;
+    text-shadow: 0 2px 15px rgba(128, 0, 0, 0.4);
+}
+
+.success-lead-text {
+    font-family: 'Georgia', serif !important;
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+    color: #d1cfc7 !important;
+    max-width: 550px !important;
+    margin: 0 auto 40px auto !important;
+}
+
+/* Карточка чека */
+.success-invoice-card {
+    background: rgba(15, 14, 14, 0.85) !important;
+    border: 1px solid rgba(128, 0, 0, 0.25) !important;
+    border-radius: 25px !important;
+    padding: 35px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6) !important;
+    margin-bottom: 45px !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.success-invoice-card:hover {
+    border-color: rgba(128, 0, 0, 0.5) !important;
+    box-shadow: 0 20px 50px rgba(128, 0, 0, 0.25) !important;
+}
+
+.invoice-card-heading {
+    font-family: 'Georgia', serif !important;
+    font-style: italic !important;
+    font-weight: normal !important;
+    font-size: 24px !important;
+    color: #a3b18a !important; 
+    margin-bottom: 25px !important;
+    padding-bottom: 15px !important;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1) !important;
+    text-align: center !important;
+}
+
+.invoice-meta-rows {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+}
+
+.invoice-meta-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 16px !important;
+}
+
+.invoice-meta-label {
+    color: #a8a6a1 !important;
+    text-align: left !important;
+}
+
+.invoice-meta-value {
+    color: #ffffff !important;
+    font-weight: 500 !important;
+    text-align: right !important;
+}
+
+/* Зона комментария */
+.invoice-comment-box {
+    margin-top: 10px !important;
+    border-top: 1px dashed rgba(255, 255, 255, 0.08) !important;
+    padding-top: 15px !important;
+    text-align: left !important;
+}
+
+.invoice-comment-label {
+    color: #a8a6a1 !important;
+    font-size: 15px !important;
+    display: block !important;
+    margin-bottom: 6px !important;
+}
+
+.invoice-comment-text {
+    font-family: 'Georgia', serif !important;
+    font-style: italic !important;
+    color: #d1cfc7 !important;
+    margin: 0 !important;
+    line-height: 1.6 !important;
+}
+
+/* Итоговая сумма */
+.invoice-final-price-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+    padding-top: 20px !important;
+    margin-top: 20px !important;
+}
+
+.invoice-final-label {
+    font-size: 18px !important;
+    color: #ffffff !important;
+    font-family: 'Georgia', serif !important;
+}
+
+.invoice-final-sum {
+    font-size: 26px !important;
+    font-weight: bold !important;
+    color: #ff4d4d !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Панель кнопок */
+.success-panel-buttons {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+}
+
+.success-primary-btn {
+    font-family: 'Georgia', serif !important;
+    font-style: italic !important;
+    font-size: 17px !important;
+    background: #800000 !important;
+    color: #ffffff !important;
+    padding: 15px 35px !important;
+    border-radius: 14px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    box-shadow: 0 4px 15px rgba(128, 0, 0, 0.4) !important;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.3s !important;
+}
+
+.success-primary-btn:hover {
+    background: #990000 !important;
+    box-shadow: 0 6px 25px rgba(128, 0, 0, 0.6) !important;
+    transform: translateY(-2px) !important;
+}
+
+.success-secondary-btn {
+    font-family: 'Georgia', serif !important;
+    font-style: italic !important;
+    font-size: 17px !important;
+    background: #242220 !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #e5e5e5 !important;
+    padding: 15px 35px !important;
+    border-radius: 14px !important;
+    text-decoration: none !important;
+    transition: background 0.3s, color 0.3s, transform 0.3s !important;
+}
+
+.success-secondary-btn:hover {
+    background: #2b2927 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+}
+
+@media (max-width: 576px) {
+    .success-panel-buttons {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+    .success-primary-btn, .success-secondary-btn {
+        width: 100% !important;
+        text-align: center !important;
+    }
+}

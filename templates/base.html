@@ -16,7 +16,9 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20.0">
+
+
 
 </head>
 
@@ -30,13 +32,14 @@
 
             <div class="logo">
 
-                <a href="/">Janka</a>
+                <a href="/" class="eco-logo-btn" aria-label="На главную">
+                    <img src="{% static 'css/images/leaf (2).png' %}" alt="Logo" class="eco-logo-img">
+                </a>
 
             </div>
 
             <nav>
 
-                <a href="/">Главная</a>
 
                 <a href="/menu/">Меню</a>
 
@@ -50,8 +53,7 @@
 
             <div class="cart">
 
-                <a href="{% url 'cart' %}">🛒</a>
-
+                <a href="{% url 'cart:cart_detail' %}">Корзина ({{ cart.get_total_quantity|default:0 }})</a>
 
             </div>
 

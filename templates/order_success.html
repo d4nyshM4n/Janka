@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Заказ успешно оформлен | Janka{% endblock %}
+
+{% block content %}
+<!-- Подключаем независимый чистый файл стилей для страницы успеха -->
+<link rel="stylesheet" href="{% static 'css/order-success.css' %}?v=1.0">
+
+<section class="success-page-layout">
+    <div class="success-page-container">
+        
+        <!-- Анимированная иконка успешного действия -->
+        <div class="success-badge-holder">
+            <span class="success-badge-emoji">🔥</span>
+        </div>
+
+        <h1 class="success-main-title">Заказ успешно принят!</h1>
+        
+        <p class="success-lead-text">
+            Спасибо за ваш заказ! Наша кухня уже приступает к приготовлению. Горячие блюда от ресторана <strong>Janka</strong> скоро будут у вас.
+        </p>
+
+        <!-- Карточка с деталями и составом чека -->
+        {% if order %}
+        <div class="success-invoice-card">
+            
+            <h3 class="invoice-card-heading">Чек заказа №{{ order.id }}</h3>
+            
+            <div class="invoice-meta-rows">
+                <div class="invoice-meta-item">
+                    <span class="invoice-meta-label">Имя получателя:</span>
+                    <span class="invoice-meta-value">{{ order.first_name }}</span>
+                </div>
+
+                <div class="invoice-meta-item">
+                    <span class="invoice-meta-label">Телефон для связи:</span>
+                    <span class="invoice-meta-value">{{ order.phone }}</span>
+                </div>
+
+                <div class="invoice-meta-item">
+                    <span class="invoice-meta-label">Адрес доставки:</span>
+                    <span class="invoice-meta-value">{{ order.address }}</span>
+                </div>
+
+                <div class="invoice-meta-item">
+                    <span class="invoice-meta-label">Способ оплаты:</span>
+                    <span class="invoice-meta-value">{{ order.get_payment_method_display }}</span>
+                </div>
+
+                {% if order.comment %}
+                <div class="invoice-comment-box">
+                    <span class="invoice-comment-label">Комментарий к доставке:</span>
+                    <p class="invoice-comment-text">«{{ order.comment }}»</p>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Итоговая стоимость -->
+            <div class="invoice-final-price-row">
+                <span class="invoice-final-label">Сумма к оплате:</span>
+                <span class="invoice-final-sum">{{ order.get_total_cost }} сом</span>
+            </div>
+            
+        </div>
+        {% endif %}
+
+        <!-- Кнопки навигации -->
+        <div class="success-panel-buttons">
+            <a href="{% url 'menu' %}" class="success-primary-btn">Вернуться в меню</a>
+            <a href="/" class="success-secondary-btn">На главную</a>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

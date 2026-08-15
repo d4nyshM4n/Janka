@@ -1,0 +1,244 @@
+.checkout-page {
+    padding: 160px 0 100px 0 !important;
+    min-height: 85vh !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+.checkout-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+.checkout-main-title {
+    font-family: 'Georgia', serif !important;
+    font-style: italic !important;
+    font-weight: normal !important;
+    text-align: center !important;
+    font-size: 45px !important;
+    color: #ffffff !important;
+    margin-bottom: 50px !important;
+    text-shadow: 0 2px 15px rgba(128, 0, 0, 0.4) !important;
+}
+
+.checkout-split-layout {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 40px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.checkout-card-form {
+    flex: 1.8 !important;
+    border: 1px solid rgba(128, 0, 0, 0.25) !important;
+    border-radius: 25px !important;
+    padding: 40px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6) !important;
+    background: linear-gradient(to right, #4a0505 0%, rgba(74, 5, 5, 0.1) 30%, rgba(7, 6, 6, 0) 50%), 
+                linear-gradient(to top, rgba(7, 6, 6, 0) 0%, rgba(74, 5, 5, 0.2) 70%, #4a0505 100%), 
+                #070606 !important;
+    box-sizing: border-box !important;
+}
+
+.checkout-card-caption {
+    font-family: 'Georgia', serif !important;
+    font-style: italic !important;
+    font-weight: normal !important;
+    font-size: 24px !important;
+    color: #ffffff !important;
+    margin-bottom: 30px !important;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1) !important;
+    padding-bottom: 15px !important;
+    text-align: left !important;
+}
+
+.checkout-form-element {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 25px !important;
+    width: 100% !important;
+}
+
+.checkout-form-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+}
+
+.checkout-label {
+    font-family: 'Georgia', serif !important;
+    color: #a8a6a1 !important;
+    font-size: 15px !important;
+    text-align: left !important;
+}
+
+.checkout-input,
+.checkout-textarea,
+.checkout-select {
+    background: #11100f !important;
+    border: 1px solid rgba(128, 0, 0, 0.3) !important;
+    padding: 14px 20px !important;
+    border-radius: 12px !important;
+    color: #ffffff !important;
+    font-size: 16px !important;
+    outline: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.checkout-textarea {
+    resize: none !important;
+    font-family: sans-serif !important;
+    min-height: 100px !important;
+}
+
+.checkout-input:focus,
+.checkout-textarea:focus,
+.checkout-select:focus {
+    border-color: rgba(255, 0, 0, 0.6) !important;
+    box-shadow: 0 0 10px rgba(128, 0, 0, 0.3) !important;
+}
+
+.checkout-submit-btn {
+    font-family: 'Georgia', serif !important;
+    font-style: italic !important;
+    font-size: 18px !important;
+    background: #800000 !important;
+    color: #ffffff !important;
+    padding: 18px !important;
+    border-radius: 14px !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+    box-shadow: 0 4px 15px rgba(128, 0, 0, 0.4) !important;
+    margin-top: 15px !important;
+    width: 100% !important;
+}
+
+.checkout-card-summary {
+    flex: 1 !important;
+    background: #242220 !important;
+    border-radius: 25px !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    padding: 35px !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
+    box-sizing: border-box !important;
+}
+
+.summary-invoice-title {
+    font-family: 'Georgia', serif !important;
+    font-style: italic !important;
+    font-weight: normal !important;
+    font-size: 26px !important;
+    color: #ffffff !important;
+    margin-bottom: 25px !important;
+    padding-bottom: 15px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    text-align: left !important;
+}
+
+.summary-items-scroll {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    max-height: 240px !important;
+    overflow-y: auto !important;
+    margin-bottom: 25px !important;
+    padding-right: 5px !important;
+}
+
+.summary-item-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 16px !important;
+    color: #d1cfc7 !important;
+}
+
+.summary-item-qty {
+    color: #ffffff !important;
+}
+
+.summary-item-cost {
+    color: #ffffff !important;
+    font-weight: 500 !important;
+}
+
+.summary-invoice-totals {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1) !important;
+    padding-top: 20px !important;
+}
+
+.totals-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    font-size: 16px !important;
+    color: #a8a6a1 !important;
+}
+
+.totals-val {
+    color: #ffffff !important;
+    font-weight: 500 !important;
+}
+
+.totals-val-free {
+    color: #a3b18a !important;
+    font-weight: 500 !important;
+}
+
+.main-final-row {
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+    padding-top: 15px !important;
+    margin-top: 5px !important;
+}
+
+.main-final-label {
+    font-size: 19px !important;
+    color: #ffffff !important;
+    font-family: 'Georgia', serif !important;
+}
+
+.main-final-sum {
+    font-size: 26px !important;
+    font-weight: bold !important;
+    color: #ff4d4d !important;
+    letter-spacing: 0.5px !important;
+}
+
+.checkout-back-link {
+    display: block !important;
+    text-align: center !important;
+    margin-top: 25px !important;
+    color: #a8a6a1 !important;
+    text-decoration: none !important;
+    font-size: 15px !important;
+    transition: color 0.2s !important;
+}
+
+.checkout-back-link:hover {
+    color: #ffffff !important;
+}
+
+@media (max-width: 992px) {
+    .checkout-split-layout {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+    .checkout-card-form {
+        width: 100% !important;
+    }
+    .checkout-card-summary {
+        width: 100% !important;
+    }
+}

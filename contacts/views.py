@@ -7,7 +7,7 @@ def contacts_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()  # Сохраняем сообщение прямо в базу данных
+            form.save()  
             messages.success(request, 'Спасибо! Ваше сообщение успешно отправлено. Мы ответим вам в ближайшее время.')
             return redirect('contacts:index')
     else:

@@ -11,7 +11,6 @@ class CategoryAdmin(admin.ModelAdmin):
         "order",
     )
 
-    # Автоматически заполняет slug на основе name при вводе в админке
     prepopulated_fields = {
         "slug": ("name",)
     }
@@ -41,7 +40,6 @@ class DishAdmin(admin.ModelAdmin):
         "name",
     )
 
-    # Автоматически заполняет slug на основе name
     prepopulated_fields = {
-    "slug": ("name",)  # Ключом ДОЛЖНО быть поле slug
+    "slug": ("name",)  
 }

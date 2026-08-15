@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Оформление заказа | Janka{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}?v=1.0">
+
+<section class="checkout-page">
+    <div class="checkout-container">
+        
+        <h1 class="checkout-main-title">Оформление заказа</h1>
+
+        <div class="checkout-split-layout">
+            
+            <!-- Форма ввода данных -->
+            <div class="checkout-card-form">
+                <h3 class="checkout-card-caption">Данные для доставки</h3>
+
+                <form action="." method="post" class="checkout-form-element">
+                    {% csrf_token %}
+                    
+                    <div class="checkout-form-group">
+                        <label class="checkout-label">Ваше имя *</label>
+                        <input type="text" name="first_name" required placeholder="Иван" class="checkout-input">
+                    </div>
+
+                    <div class="checkout-form-group">
+                        <label class="checkout-label">Номер телефона *</label>
+                        <input type="tel" name="phone" required placeholder="+996 (___) __-__-__" class="checkout-input">
+                    </div>
+
+                    <div class="checkout-form-group">
+                        <label class="checkout-label">Адрес доставки *</label>
+                        <input type="text" name="address" required placeholder="Город, улица, номер дома, квартира" class="checkout-input">
+                    </div>
+
+                    <div class="checkout-form-group">
+                        <label class="checkout-label">Способ оплаты *</label>
+                        <select name="payment_method" class="checkout-select">
+                            <option value="cash">Наличными курьеру</option>
+                            <option value="card">Картой курьеру (через терминал)</option>
+                            <option value="online">Элсом / О!Деньги</option>
+                        </select>
+                    </div>
+
+                    <div class="checkout-form-group">
+                        <label class="checkout-label">Комментарий к заказу</label>
+                        <textarea name="comment" rows="3" placeholder="Пожелания к кухне, код в домофоне и т.д." class="checkout-textarea"></textarea>
+                    </div>
+
+                    <button type="submit" class="checkout-submit-btn">Подтвердить заказ</button>
+                </form>
+            </div>
+
+            <!-- Содержимое чека -->
+            <div class="checkout-card-summary">
+                <h2 class="summary-invoice-title">Состав заказа</h2>
+                
+                <div class="summary-items-scroll">
+                    {% for item in cart_items %}
+                        <div class="summary-item-row">
+                            <span class="summary-item-name">{{ item.dish.name }} <strong class="summary-item-qty">× {{ item.quantity }}</strong></span>
+                            <span class="summary-item-cost">{{ item.get_cost }} сом</span>
+                        </div>
+                    {% empty %}
+                        <p class="summary-empty-text">В заказе нет блюд</p>
+                    {% endfor %}
+                </div>
+                
+                <div class="summary-invoice-totals">
+                    <div class="totals-row">
+                        <span>Всего позиций:</span>
+                        <span class="totals-val">{{ cart.get_total_quantity }} шт.</span>
+                    </div>
+                    <div class="totals-row">
+                        <span>Доставка курьером:</span>
+                        <span class="totals-val-free">Бесплатно</span>
+                    </div>
+                    <div class="totals-row main-final-row">
+                        <span class="main-final-label">Итого к оплате:</span>
+                        <span class="main-final-sum">{{ cart.get_total_price }} сом</span>
+                    </div>
+                </div>
+
+                <a href="{% url 'cart:cart_detail' %}" class="checkout-back-link">← Вернуться в корзину</a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+{% endblock %}

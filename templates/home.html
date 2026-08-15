@@ -6,87 +6,65 @@
 <!-- Главный баннер -->
 
 <section class="hero">
+    <div class="video_bg">
+        <video autoplay muted loop playsinline id="hero_video">
+            <source src="{% static 'video/bg-video.mp4' %}" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <div class="video_overlay"></div>
+    </div>
 
     <div class="container">
-
         <div class="hero_box">
-
             <div class="hero_text">
-
-                <h1>
-                    Добро пожаловать в Janka
-                </h1>
-
+                <h1>Janka</h1>
                 <p>
                     Домашняя кухня, свежие продукты и уютная атмосфера.
                     Мы готовим блюда с любовью и заботимся о каждом госте.
                 </p>
-
-                <a href="/menu/" class="btn">
-                    Посмотреть меню
-                </a>
-
+                <a href="{% url 'menu' %}" class="btn">Посмотреть меню</a>
             </div>
-
-            <div class="hero_image">
-
-                <img src="{% static 'css/images/banner.png' %}" alt="Janka">
-
-            </div>
-
         </div>
-
     </div>
-
 </section>
 
 <!-- Популярные блюда -->
 
 <section class="popular">
-
+    
     <div class="container">
-
         <h2>Наши хиты</h2>
-
         <div class="cards">
-
-            {% for dish in dishes %}
-
+            {% for dish in dishes|slice:":3" %}
             <div class="card">
-
                 <img src="{{ dish.image.url }}" alt="{{ dish.name }}">
-
                 <div class="card_body">
-
                     <h3>{{ dish.name }}</h3>
-
                     <p>{{ dish.description|truncatewords:12 }}</p>
-
                     <div class="price">
                         {{ dish.price }} сом
                     </div>
-
                     <a href="#" class="btn_small">
                         Добавить
                     </a>
-
                 </div>
-
             </div>
-
             {% empty %}
-
             <p>
                 Пока блюда не добавлены.
             </p>
-
             {% endfor %}
+        </div> <!-- /cards -->
 
+        <!-- НОВЫЙ БЛОК: Обертка и кнопка под карточками -->
+        <div class="menu-btn-container">
+            <a href="{% url 'menu' %}" class="btn">Посмотреть меню</a>
         </div>
 
-    </div>
+    </div> <!-- /container -->
 
 </section>
+
 
 <!-- Почему выбирают нас -->
 
@@ -202,7 +180,7 @@
 
             <div class="about_image">
 
-                <img src="{% static 'images/about.jpg' %}" alt="О нас">
+                <img src="{% static 'css/images/about2.png' %}" alt="О нас">
 
             </div>
 

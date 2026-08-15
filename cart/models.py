@@ -1,11 +1,9 @@
 from django.db import models
 from django.conf import settings
-# Замени 'menu' и 'Dish' на имя своего приложения и модели блюд
+from django.db.models import Sum, F
 from menu.models import Dish 
 
-
 class Cart(models.Model):
-    """Модель корзины пользователя"""
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -18,6 +16,7 @@ class Cart(models.Model):
         max_length=255, 
         null=True, 
         blank=True, 
+        db_index=True, 
         verbose_name='ID сессии (для неавторизованных)'
     )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
@@ -33,16 +32,17 @@ class Cart(models.Model):
         return f'Корзина (Сессия: {self.session_id})'
 
     def get_total_price(self):
-        """Подсчет общей стоимости всех позиций в корзине"""
-        return sum(item.get_cost() for item in self.items.all())
+        total = self.items.aggregate(
+            total_sum=Sum(F('quantity') * F('dish__price'))
+        )['total_sum']
+        return total if total else 0
 
     def get_total_quantity(self):
-        """Подсчет общего количества порций"""
-        return sum(item.quantity for item in self.items.all())
+        total = self.items.aggregate(total_qty=Sum('quantity'))['total_qty']
+        return total if total else 0
 
 
 class CartItem(models.Model):
-    """Модель элемента/блюда в корзине"""
     cart = models.ForeignKey(
         Cart,
         on_delete=models.CASCADE,
@@ -61,12 +61,10 @@ class CartItem(models.Model):
     class Meta:
         verbose_name = 'Элемент корзины'
         verbose_name_plural = 'Элементы корзины'
-        # Гарантирует, что одно и то же блюдо не будет дублироваться строками, а увеличится quantity
         unique_together = ('cart', 'dish') 
 
     def __str__(self):
         return f'{self.quantity} x {self.dish.name}'
 
     def get_cost(self):
-        """Стоимость одной позиции (цена блюда * количество)"""
         return self.dish.price * self.quantity  
